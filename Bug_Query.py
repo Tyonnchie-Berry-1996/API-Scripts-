@@ -28,7 +28,7 @@ def product_finder():
             id_object = json.loads(e.read())
 
         
-        for x in range(0,id_object):
+        for x in range(0, id_object):
             product_id = id_object['ids'][x]
 
             r = requests.get(f"http://{URL}rest/product/{product_id}")
@@ -74,7 +74,7 @@ def bugz_finder():
 
         print(f"Found {len(dependson)} bugs with in query")
 
-        for i in range(0, 10):
+        for i in range(0, 1):
 
             matched = re.findall(r"[#]\d{1,10}", str(dependson[i]))
             print("\nRetrieving public tracking BZ")
