@@ -27,9 +27,8 @@ def product_finder():
         with open("id_advisories.json", 'r') as e:
             id_object = json.loads(e.read())
 
-
-
-        for x in range(0,1):
+        
+        for x in range(0,id_object):
             product_id = id_object['ids'][x]
 
             r = requests.get(f"http://{URL}rest/product/{product_id}")
@@ -43,6 +42,7 @@ def product_finder():
     except IndexError:
         pass
 
+
 def bugz_finder():
 
     api_key = api
@@ -51,22 +51,16 @@ def bugz_finder():
 
     bzapi = bugzilla.Bugzilla(URL, api_key=api_key, force_rest=True)
     assert bzapi.logged_in
-    #
-    query = bzapi.build_query(product="Fedora Legacy",
+    
+    query = bzapi.build_query(product="Fedora",
                               component="kernel",
                               )
 
     bugs = bzapi.query(query)
 
-    print(f"Found {len(bugs)} bugs with in query")
-
     for i in range(0, len(bugs)):
         matches = re.findall(r"[#]\d{1,10}", str(bugs[i]))
-        # print(matches)
-        # print("\nRetrieving BZ data from query")
         sleep(2)
-
-        # print(bugs[i])
 
         bug_num = matches[0]
         bug_id = bug_num[1:len(bug_num) - 1 + 1]
@@ -78,6 +72,8 @@ def bugz_finder():
 
         dependson = bzapi.query(hoping)
 
+        print(f"Found {len(dependson)} bugs with in query")
+
         for i in range(0, len(dependson)):
 
             matched = re.findall(r"[#]\d{1,10}", str(dependson[i]))
@@ -87,7 +83,7 @@ def bugz_finder():
             bug_numz= matched[0]
             id_bug = bug_numz[1:len(bug_numz) - 1 + 1]
             link = "https://bugzilla.redhat.com/show_bug.cgi?id=" + id_bug
-            #
+            
             print(dependson[i],"\n",link)
 
             sleep(3)
