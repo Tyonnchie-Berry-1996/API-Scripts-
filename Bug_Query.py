@@ -92,6 +92,7 @@ def bugz_finder():
         if len(str(temp_file)) > 0:
             with open(temp_file, 'w') as f:
                 f.write('')
+                os.remove(temp_file)
                 
     except IndexError:
         pass
