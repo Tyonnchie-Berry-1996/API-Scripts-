@@ -3,7 +3,7 @@ from googleapiclient.discovery import build
 api_key = PASTE_YOUR_API_KEY_HERE
 
 youtube = build('youtube', 'v3', developerKey=api_key)
-channel_id = ''
+channel_id = 'PASTE_YOUR_CHANNEL_ID_HERE'
 
 response = youtube.channels().list(
     part='statistics',
