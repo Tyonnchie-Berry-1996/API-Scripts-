@@ -85,7 +85,7 @@ def bugz_finder():
             bug_id = bug_num[1:len(bug_num) - 1 + 1]
             link = "https://bugzilla.redhat.com/show_bug.cgi?id=" + bug_id
 
-            print(bugs[i], "\n", link)
+            print(bugs[i], "\n", link, "\n")
 
         temp_file = f"/home/src/API-Scripts/temp-holder.txt"
         if len(str(temp_file)) > 0:
