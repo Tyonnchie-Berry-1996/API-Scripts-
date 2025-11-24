@@ -1,6 +1,5 @@
 import os
 import subprocess
-from BZ_API import api
 import urllib3
 import bugzilla
 import re
@@ -43,7 +42,7 @@ def product_finder():
 
 def bugz_finder():
     try:
-        expanded_path = os.path.expandvars('$HOME/.bashrc')
+        expanded_path = os.path.expandvars('/root/.bashrc')
 
         result = subprocess.run(
             ['bash', '-c', f'source {expanded_path} && echo $BUGZILLA_API_KEY'],
