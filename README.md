@@ -62,16 +62,26 @@ Each script is a bare-bones starting point that shows how to authenticate, hit e
    python3 Prettify-JSON.py
    ```
 
-Let's take it up a notch
+## Authentication
 
----
+The following scripts require API credentials or tokens to run:
 
-For the scripts <code>Bug_Query.py</code>, <code>YT-OAuth.py</code>, <code>Youtube-API.py</code>, and <code>Subscriber-list.py</code>
-they require a bit of authentication. 
+- <code>Bug_Query.py</code>
+- <code>YT-OAuth.py</code>
+- <code>Youtube-API.py</code>
+- <code>Subscriber-list.py</code>
 
-For <code>Bug_Query.py</code> you need an API key which can be found here: https://bugzilla.redhat.com/userprefs.cgi?tab=apikey the script will auto detect if you have the API key expoterd as a varaible using subprocess, echo command, and os. I would recommend setting this up before running your venv and if you still have your venv up make sure you run <code>deactivate</code> before the next steps 
+### Bug_Query.py (Bugzilla – Red Hat)
 
-1. ***Quickstart***
-     ```bash
-     echo $BUGZILLA_API_KEY
-     ```
+<code>Bug_Query.py</code> uses the Bugzilla API and requires an API key.
+
+You can generate an API key here:  
+https://bugzilla.redhat.com/userprefs.cgi?tab=apikey
+
+The script supports auto detection for environment variables and if it doesn't detect a env var you will be asked to copy and paste you API key into the terminal 
+
+1. **Environment variable (recommended)**  
+   Export your key before running the script:
+   ```bash
+   export BUGZILLA_API_KEY="your_api_key_here"
+   ```
