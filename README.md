@@ -50,5 +50,13 @@ Each script is a bare-bones starting point that shows how to authenticate, hit e
    ```
 5. ***Try some easy to use API scripts***
    ```bash
-   
-   ```   
+   python3 Gmail-List.py
+   ```
+
+   ```bash
+   python3 Extract-Follwers.py
+   ```
+
+   ```bash
+   python3 Prettify-JSON.py
+   ```
